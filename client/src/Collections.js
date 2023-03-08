@@ -24,16 +24,23 @@ export default function Collections() {
   console.log(nftList)
 
   return (
-    <div>
-      {nftList && nftList.map(nft => {
-        return (
-          <div key={nft.token_id}>
-            <img alt="Thumbnail of NFTs by the given address" src={nft.metadata.image} />
-            <h3>Name: {nft.metadata.name}</h3>
-            <h3>Description: {nft.metadata.description}</h3>
-          </div>
-        )
-      })}
+    <div className='container'>
+      <div className="row row-cols-5 g-4">
+        {nftList && nftList.map(nft => {
+          return (
+            <div className='col mb-4' key={nft.token_id}>
+              <div className='card h-100' style={{width: '18rem'}}>
+                <img className='card-img-top' alt='Thumbnail of NFTs by the given address' src={nft.metadata.image} />
+                <div className='card-body '>
+                  <h5 className='card-title'>{nft.metadata.name}</h5>
+                  <p className='card-text'>{nft.metadata.description}</p>
+                  <p>{nft.metadata.attributes.join(', ')}</p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
     </div>
   );
 }

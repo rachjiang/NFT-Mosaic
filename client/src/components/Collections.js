@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import axios from 'axios';
+import OpenModal from './OpenModal';
+import '../App.css';
 
 const Collections = () => {
   const [address, setAddress] = useState('');
   const [nftList, setNftList] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedNFT, setSelectedNFT] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,31 +31,42 @@ const Collections = () => {
 
   console.log(nftList);
 
+  const handleOpenModal = (nft) => {
+    setModalOpen(true);
+    setSelectedNFT(nft);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedNFT(null);
+  };
+
   return (
-    <div className='container mt-5'>
-       <form onSubmit={handleSubmit}>
-        <label>
-          NFT Collection Address:
-          <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      <div className="row row-cols-4 g-4">
+    <div className='container'>
+      <div className='container'>
+        <h1 className='font-effect-neon'>NFT Mosaic</h1>
+        <form className='text-center d-flex' onSubmit={handleSubmit}>
+            <input type='text' className='form-control' placeholder='Enter Ethereum Contract Address Here' value={address} onChange={(event) => setAddress(event.target.value)} />
+          <button type='submit' className='btn btn-dark'>Submit</button>
+        </form>
+      </div>
+      <div className='row row-cols-4 g-4'>
         {nftList && nftList.map(nft => {
           return (
             <div className='col mb-4' key={nft.token_id}>
-              <div className='card h-100' style={{width: '18rem'}}>
+              <div className='card h-100' style={{width: '18rem'}} onClick={() => handleOpenModal(nft)}>
                 <img className='card-img-top' alt='Thumbnail of NFTs by the given address' src={nft.metadata.image} />
                 <div className='card-body '>
                   <h5 className='card-title'>{nft.metadata.name}</h5>
-                  <p className='card-text'>{nft.metadata.description}</p>
-                  {/* <p>{nft.metadata.attributes.join(', ')}</p> */}
                 </div>
               </div>
             </div>
           )
         })}
       </div>
+      {modalOpen && (
+        <OpenModal nft={selectedNFT} handleCloseModal={handleCloseModal} />
+      )}
     </div>
   );
 }

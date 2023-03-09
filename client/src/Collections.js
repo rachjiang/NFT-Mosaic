@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
-
+import { useState } from 'react';
 import axios from 'axios';
 
-export default function Collections() {
+const Collections = () => {
+  const [address, setAddress] = useState('');
   const [nftList, setNftList] = useState([]);
 
-  useEffect(() => {
-    axios('http://localhost:4000/collection').then(({ data }) => {
-      // the response data contains a result array representing the nfts of the given address 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await axios.get(`http://localhost:4000/?address=${address}`);
+      // the response data contains a result array representing the nfts of the given address
       const nftData = data.result;
       // accessing each nft in the result array to parse the metadata value from a JSON string to an accessible object
       const updatedNftList = nftData.map(nft => {
@@ -18,14 +20,23 @@ export default function Collections() {
         };
       });
       setNftList(updatedNftList);
-    });
-  }, []);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  console.log(nftList)
+  console.log(nftList);
 
   return (
-    <div className='container'>
-      <div className="row row-cols-5 g-4">
+    <div className='container mt-5'>
+       <form onSubmit={handleSubmit}>
+        <label>
+          NFT Collection Address:
+          <input type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      <div className="row row-cols-4 g-4">
         {nftList && nftList.map(nft => {
           return (
             <div className='col mb-4' key={nft.token_id}>
@@ -34,7 +45,7 @@ export default function Collections() {
                 <div className='card-body '>
                   <h5 className='card-title'>{nft.metadata.name}</h5>
                   <p className='card-text'>{nft.metadata.description}</p>
-                  <p>{nft.metadata.attributes.join(', ')}</p>
+                  {/* <p>{nft.metadata.attributes.join(', ')}</p> */}
                 </div>
               </div>
             </div>
@@ -44,3 +55,5 @@ export default function Collections() {
     </div>
   );
 }
+
+export default Collections;

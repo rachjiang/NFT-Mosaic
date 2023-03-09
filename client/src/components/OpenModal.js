@@ -44,10 +44,10 @@ const OpenModal = ({ nft, handleCloseModal }) => {
                 })}
             </ul>
         </div>
-    ) : (
+        ) : (
         <p>Attributes: {nft.metadata.attributes.join(', ')}</p>
-    )
-) : null }
+        )
+        ) : null }
         <p>Owner Address: {owner}</p>
         <Button variant="info" onClick={() => window.open(`https://opensea.io/assets/${nft.token_address}/${nft.token_id}`, '_blank')}>Purchase</Button>
         </Modal.Body>

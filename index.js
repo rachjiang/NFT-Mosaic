@@ -20,15 +20,16 @@ app.use(
 
 // adding variable for api key and address
 const MORALIS_API_KEY = process.env.MORALIS_API_KEY;
-const address = '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB';
 const chain = EvmChain.ETHEREUM
 
-app.get('/collection', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
+      const { address } = req.query;
+      // use 0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB to test
         const response = await Moralis.EvmApi.nft.getContractNFTs({
             address,
             chain,
-            limit: 10
+            limit: 12
          });
          res.json(response);
     } catch (error) {

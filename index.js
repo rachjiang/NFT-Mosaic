@@ -26,18 +26,36 @@ app.get('/', async (req, res) => {
     try {
       const { address } = req.query;
       // use 0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB to test
-        const response = await Moralis.EvmApi.nft.getContractNFTs({
-            address,
-            chain,
-            limit: 12
-         });
-         res.json(response);
+      const response = await Moralis.EvmApi.nft.getContractNFTs({
+          address,
+          chain,
+          limit: 12
+        });
+        res.json(response);
     } catch (error) {
       console.error(error);
       res.status(500);
       res.json({ error: error.message });
     }
   });
+
+app.get('/owner/', async (req, res) => {
+    try {
+      const { address, tokenId } = req.query;
+      const response = await Moralis.EvmApi.nft.getNFTTokenIdOwners({
+        address,
+        chain,
+        tokenId
+      });
+      res.json(response);
+
+    } catch (error) {
+      console.error(error);
+      res.status(500);
+      res.json({ error: error.message });
+    }
+})
+
 
 // startServer function that initializes Moralis
 const startServer = async () => {

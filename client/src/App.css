@@ -1,4 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&effect=neon');
+
 .App {
-  text-align: center;
+    background-image: url('../public/codioful-formerly-gradienta-G084bO4wGDA-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
 }
 
+.App:nth-of-type(even) {
+    transform: scaleY(-1);
+  }
+
+.container {
+    padding: 5rem;
+    color:black;
+}
+
+.container h1{
+    font-family: 'Lato', sans-serif;
+    font-size: 100px;
+    color:rgb(239, 189, 255);
+    text-align: center;
+    padding-bottom: 5rem;
+}

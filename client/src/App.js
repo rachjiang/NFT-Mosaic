@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Collections from './Collections';
+import './App.css'
+import Collections from './components/Collections';
 // Importing the Bootstrap 5 CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,7 +12,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <div className='App'>
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;

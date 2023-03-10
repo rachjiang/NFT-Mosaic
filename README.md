@@ -1,6 +1,6 @@
 # Nifty-Gallery
 
-Input an Ethereum contract address to view a collection of NFTs! 
+Input an Ethereum collection address to view a collection of NFTs! 
 
 After forking and cloning the repo, enter the root directory:
 

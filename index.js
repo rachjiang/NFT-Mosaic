@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
       const response = await Moralis.EvmApi.nft.getContractNFTs({
           address,
           chain,
-          limit: 12
+          limit: 20
         });
         res.json(response);
     } catch (error) {

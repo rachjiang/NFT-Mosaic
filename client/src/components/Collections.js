@@ -44,7 +44,7 @@ const Collections = () => {
   return (
     <div className='container'>
       <div className='container'>
-        <h1 className='font-effect-neon'>Nifty Gallery</h1>
+        <h1 className='font-effect-neon'>NIFTY GALLERY</h1>
         <form className='text-center d-flex' onSubmit={handleSubmit}>
             <input type='text' className='form-control' placeholder='Enter Ethereum Contract Address Here' value={address} onChange={(event) => setAddress(event.target.value)} />
           <button type='submit' className='btn btn-dark'>Submit</button>

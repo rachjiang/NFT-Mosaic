@@ -35,7 +35,7 @@ const OpenModal = ({ nft, handleCloseModal }) => {
                             (typeof(nft.metadata.attributes[0]) === 'object') ? (
                             <div>
                                 <p className='fw-bold'>Attributes</p>
-                                <ul class="list-unstyled p-0">
+                                <ul className="list-unstyled p-0">
                                     {nft.metadata.attributes.map((attr, index) => {
                                         const keys = Object.keys(attr);
                                         const values = keys.map((key) => attr[key]);

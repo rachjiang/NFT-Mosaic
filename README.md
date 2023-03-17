@@ -23,6 +23,6 @@ Open another tab in the terminal:
 The app is now running in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-This application uses the Moralis Web3 API. To run, please create a .env file in the root directory and add `MORALIS_API_KEY = <your_api_key>`.
+This application uses the Moralis NFT API. To run, please create a .env file in the root directory and add `MORALIS_API_KEY = <your_api_key>`.
 
 Enjoy!

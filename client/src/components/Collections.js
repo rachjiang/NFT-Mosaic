@@ -12,7 +12,7 @@ const Collections = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axios.get(`http://localhost:4000/?address=${address}`);
+      const { data } = await axios.get(`https://nifty-gallery-2.vercel.app/?address=${address}`);
       // the response data contains a result array representing the nfts of the given address
       const nftData = data.result;
       // accessing each nft in the result array to parse the metadata value from a JSON string to an accessible object

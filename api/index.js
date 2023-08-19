@@ -10,10 +10,10 @@ dotenv.config();
 const app = express();
 const port = 4000;
 
-// allow access to React app on localhost:3000
+// allow access to React app
 app.use(
     cors({
-        origin: 'http://localhost:3000',
+        origin: 'https://nifty-gallery-2.vercel.app',
         credentials: true,
     })
 );

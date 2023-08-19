@@ -13,7 +13,7 @@ const port = 4000;
 // allow access to React app
 app.use(
     cors({
-        origin: 'https://nifty-gallery-2.vercel.app',
+        origin: 'https://nifty-gallery-oxvcc1d6o-rachjiang.vercel.app',
         credentials: true,
     })
 );

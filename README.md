@@ -6,9 +6,9 @@ Input an Ethereum collection address to view a collection of NFTs!
 
 <img width="982" alt="Screen Shot 2023-03-11 at 11 58 55 PM" src="https://user-images.githubusercontent.com/96898287/224525456-fad6ef60-3255-4db4-a80c-5d592a1dbba6.png">
 
-After forking and cloning the repo, enter the server directory:
+After forking and cloning the repo, enter the api directory:
 
-### `cd server`
+### `cd api`
 
 ### `npm install`
 

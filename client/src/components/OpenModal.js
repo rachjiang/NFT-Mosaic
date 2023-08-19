@@ -7,7 +7,7 @@ const OpenModal = ({ nft, handleCloseModal }) => {
 
     const getOwner = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:4000/owner/?address=${nft.token_address}&tokenId=${nft.token_id}`);
+            const { data } = await axios.get(`https://nifty-gallery-2.vercel.app/owner/?address=${nft.token_address}&tokenId=${nft.token_id}`);
             setOwner(data.result[0].token_address);
         } catch (error) {
             console.error(error);

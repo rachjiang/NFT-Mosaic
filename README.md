@@ -2,9 +2,9 @@
 
 Input an Ethereum contract address to view a collection of NFTs! 
 
-After forking and cloning the repo, enter the server directory:
+After forking and cloning the repo, enter the api directory:
 
-### `cd server`
+### `cd api`
 
 ### `npm install`
 

@@ -1,7 +1,7 @@
 {
   "functions": {
     "api": {
-      "runtime": "nodejs@16.13.2",
+      "runtime": "nodejs@16.14.1",
       "pattern": "./api/*.js"
     }
   }
